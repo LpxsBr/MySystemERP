@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar";
 import { getSession, signOut } from "next-auth/react"
-import { Router, useRouter } from "next/router"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import FinancialResume from "@/components/FinancialResume";
@@ -72,9 +72,9 @@ export const ModuleItem = ({ module }) => {
     )
 }
 
-export default function dashboard() {
+export default function Dashboard() {
 
-    const [user, setUser] = useState();
+    const [user, setUser] = useState([]);
 
     const router = useRouter();
 
@@ -87,28 +87,7 @@ export default function dashboard() {
 
     useEffect(() => {
         session.then((data) => setUser(data.user))
-    }, [])
-
-    const [title, setTitle] = useState('teste')
-    const [url, setUrl] = useState('teste')
-    let user_id = user?.email
-
-    console.log(user);
-
-    const submitData = async () => {
-        console.log('clicou');
-        try {
-            const body = { title, url, user_id }
-            await fetch(`http://localhost:3000/api/create_link`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(body),
-            }).then(() => console.log('send'))
-            router.push('/dashboard')
-        } catch (error) {
-            console.error(error)
-        }
-    }
+    }, [session])
 
     const InitStyle = styled.main`
     display: flex;

@@ -35,7 +35,7 @@ export default function Navbar() {
     return (
         <header style={style}>
             <nav>
-                <Link href="/" style={{textDecoration: 'none', color: '#fff'}}>LOGO</Link>
+                <Link href="/" style={{ textDecoration: 'none', color: '#fff' }}>LOGO</Link>
             </nav>
             <nav className="nav">
                 {!user
@@ -47,7 +47,7 @@ export default function Navbar() {
                     </ul>
                     :
                     <ul style={styleLoggedNav}>
-                        <img style={img} src={user?.user.image} height={40} width={40} />
+                        <img style={img} alt="avatar" src={user?.user.image} height={40} width={40} />
                         <span>{user?.user.name}</span>
                     </ul>
                 }
