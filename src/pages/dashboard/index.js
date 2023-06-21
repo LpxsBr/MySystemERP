@@ -6,6 +6,7 @@ import styled from "styled-components";
 import FinancialResume from "@/components/FinancialResume";
 import OrderResumeTable from "@/components/OrderResumeTable";
 import OrderResume from "@/components/OrderResume";
+import Link from "next/link";
 
 export const system_modules = [
     {
@@ -59,14 +60,14 @@ export const ModuleItem = ({ module }) => {
 
     return (
         <StyledModuleItem>
-            <a href={module.path}>
+            <Link href={module.path}>
                 <div>
                     <img src={module.image} />
                 </div>
                 <div>
                     <h3>{module.name}</h3>
                 </div>
-            </a>
+            </Link>
         </StyledModuleItem>
     )
 }

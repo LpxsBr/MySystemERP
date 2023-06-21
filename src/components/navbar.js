@@ -1,4 +1,5 @@
 import { getSession } from "next-auth/react"
+import Link from "next/link";
 import { useEffect, useState } from "react"
 
 export default function Navbar() {
@@ -34,15 +35,15 @@ export default function Navbar() {
     return (
         <header style={style}>
             <nav>
-                <a href="/" style={{textDecoration: 'none', color: '#fff'}}>LOGO</a>
+                <Link href="/" style={{textDecoration: 'none', color: '#fff'}}>LOGO</Link>
             </nav>
             <nav className="nav">
                 {!user
                     ?
 
                     <ul>
-                        <a href="#">Home</a>
-                        <a href="#">Login</a>
+                        <Link href="#">Home</Link>
+                        <Link href="#">Login</Link>
                     </ul>
                     :
                     <ul style={styleLoggedNav}>
